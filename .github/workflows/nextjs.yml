@@ -29,8 +29,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Debug TypeScript Config
-        run: cat tsconfig.json
       - name: Checkout
         uses: actions/checkout@v4
       - name: Detect package manager
