@@ -1,7 +1,11 @@
 import EventDetails from "../../components/EventDetails";
+import { fetchEvents } from "../../services/eventService";
 
 export async function generateStaticParams() {
-  return [];
+  const events = await fetchEvents();
+  return events.map((event) => ({
+    id: event.id.toString(),
+  }));
 }
 
 export default function Details() {
