@@ -1,9 +1,8 @@
-
 // These styles apply to every route in the application
-import './globals.css'
+import "./globals.css";
 import Header from "./components/Header";
 import FooterComponent from "./components/Footer";
-import Head from 'next/head';
+// import Head from 'next/head';
 
 export const metadata = {
   title: "Event Ticketing Platform",
@@ -12,7 +11,6 @@ export const metadata = {
     icon: "/tickets_white.svg",
   },
 };
-
 
 export default function RootLayout({
   children,
@@ -24,7 +22,7 @@ export default function RootLayout({
       <body className="bg-white flex flex-col min-h-screen w-full overflow-x-hidden">
         <Header />
         <main className="flex-1 flex items-center justify-center p-4">
-        {children}
+          {children}
         </main>
         <FooterComponent />
       </body>
