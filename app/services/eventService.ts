@@ -83,12 +83,22 @@ export async function fetchEvents(): Promise<Event[]> {
   return events;
 }
 
-export async function fetchEvent(id: number): Promise<Event | undefined> {
+export async function fetchEvent(id: number): Promise<Event> {
   /** will connect to backend in future */
   // const response = await fetch(`http://localhost:8000/event/${id}`);
   // if (!response.ok) {
   //   throw new Error("Failed to fetch event");
   // }
   // return response.json();
-  return events.find((event) => event.id == id);
+  return (
+    events.find((event) => event.id === id) ?? {
+      id: 0,
+      date: new Date(),
+      title: "Unknown event",
+      location: "Unknown",
+      description: "No event found.",
+      image: "",
+      tickets: [],
+    }
+  );
 }

@@ -1,6 +1,7 @@
 "use client";
 
-import { Navbar, Dropdown } from "flowbite-react";
+import { Navbar } from "flowbite-react";
+import Image from "next/image";
 
 export default function Header() {
   return (
@@ -11,7 +12,7 @@ export default function Header() {
     >
       {/* Logo */}
       <Navbar.Brand href="#" className="flex items-center space-x-4">
-        <img src="/tickets.svg" className="h-8" alt="MasterTicket Logo" />
+        <Image src="/tickets.svg" className="h-8" alt="MasterTicket Logo" />
         <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white text-gray-700">
           MasterTicket
         </span>
