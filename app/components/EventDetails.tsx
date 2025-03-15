@@ -7,6 +7,7 @@ import { useEvent } from "../hooks/useEvent";
 import Link from "next/link";
 import { imagesBasePath } from "../imagesBase";
 // import styles from "./EventDetails.module.css";
+import Image from "next/image";
 
 export default function EventDetails() {
   const { id } = useParams();
@@ -21,7 +22,7 @@ export default function EventDetails() {
 
   return (
     <div className="max-w-[1200px]">
-      <img src={`${imagesBasePath}images/${event.image}`} alt="Event" />
+      <Image src={`/images/${event.image}`} alt="Event" />
       <div>
         <h1 className="font-bold text-2xl my-4">{event.title}</h1>
         <p>{event.description}</p>
