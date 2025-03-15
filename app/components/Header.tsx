@@ -6,6 +6,7 @@ import Link from "next/link";
 import { imagesBasePath } from "../imagesBase";
 
 export default function Header() {
+  console.log(imagesBasePath);
   return (
     <Navbar
       fluid={true}
