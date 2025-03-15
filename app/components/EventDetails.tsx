@@ -17,6 +17,8 @@ export default function EventDetails() {
   if (error) return <p className="text-red-500">{error.message}</p>;
   if (!event) return <p>No event found.</p>;
 
+  console.log(imagesBasePath);
+
   return (
     <div className="max-w-[1200px]">
       <img src={`${imagesBasePath}images/${event.image}`} alt="Event" />
