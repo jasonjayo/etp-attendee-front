@@ -3,7 +3,6 @@ import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import { useDispatch } from "react-redux";
 import { setProcessing, setComplete } from "../../store/purchaseSlice";
 import type { AppDispatch } from "../../store/store";
-import { imagesBasePath } from "../imagesBase";
 
 export default function PurchaseForm({ price }: { price: number | undefined }) {
   const dispatch: AppDispatch = useDispatch();
@@ -15,6 +14,8 @@ export default function PurchaseForm({ price }: { price: number | undefined }) {
     }, 3000);
   }
 
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
+
   return (
     <div>
       <div
@@ -25,7 +26,7 @@ export default function PurchaseForm({ price }: { price: number | undefined }) {
         Pay with
         <img
           className="inline-block w-20 ms-2"
-          src={`${imagesBasePath}images/PayPal.png`}
+          src={`${basePath}images/PayPal.png`}
           alt="PayPal "
         />
       </div>
@@ -37,7 +38,7 @@ export default function PurchaseForm({ price }: { price: number | undefined }) {
         Pay with
         <img
           className="inline-block w-14 ms-2 "
-          src={`${imagesBasePath}images/stripe.svg`}
+          src={`${basePath}images/stripe.svg`}
           alt="Stripe"
         />
       </div>
