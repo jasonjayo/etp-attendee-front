@@ -3,11 +3,9 @@
 import { Navbar } from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
-import getConfig from "next/config";
 
 export default function Header() {
-  const { publicRuntimeConfig } = getConfig();
-  const basePath = publicRuntimeConfig.basePath;
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
   return (
     <Navbar
       fluid={true}
