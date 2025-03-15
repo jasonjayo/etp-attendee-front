@@ -5,6 +5,7 @@ import { Button } from "flowbite-react";
 import { useParams } from "next/navigation";
 import { useEvent } from "../hooks/useEvent";
 import Link from "next/link";
+import { imagesBasePath } from "../imagesBase";
 // import styles from "./EventDetails.module.css";
 
 export default function EventDetails() {
@@ -18,7 +19,7 @@ export default function EventDetails() {
 
   return (
     <div className="max-w-[1200px]">
-      <img src={`/images/${event.image}`} alt="Event" />
+      <img src={`${imagesBasePath}images/${event.image}`} alt="Event" />
       <div>
         <h1 className="font-bold text-2xl my-4">{event.title}</h1>
         <p>{event.description}</p>

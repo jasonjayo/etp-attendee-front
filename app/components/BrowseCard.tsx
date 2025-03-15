@@ -4,6 +4,7 @@ import { Event } from "../services/eventService";
 import { Card } from "flowbite-react";
 import { Button } from "flowbite-react";
 import Link from "next/link";
+import { imagesBasePath } from "../imagesBase";
 
 interface BrowseCardProps {
   event: Event;
@@ -11,7 +12,10 @@ interface BrowseCardProps {
 
 export default function BrowseCard({ event }: BrowseCardProps) {
   return (
-    <Card className="max-w-sm" imgSrc={`/images/${event.image}`}>
+    <Card
+      className="max-w-sm"
+      imgSrc={`${imagesBasePath}images/${event.image}`}
+    >
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         {event.title}
       </h5>

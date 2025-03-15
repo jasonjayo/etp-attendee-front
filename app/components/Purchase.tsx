@@ -9,6 +9,7 @@ import type { RootState } from "../../store/store";
 import { useDispatch } from "react-redux";
 import { setPayment } from "../../store/purchaseSlice";
 import type { AppDispatch } from "../../store/store";
+import { imagesBasePath } from "../imagesBase";
 
 function Purchase() {
   const dispatch: AppDispatch = useDispatch();
@@ -71,9 +72,13 @@ function Purchase() {
             You&#39;re going to <b>{event.title}</b>!
           </p>
           <p className="my-4">Your digital QR ticket is below.</p>
-          <img src="/images/qr.png" className="w-48 mt-4" alt="QR code" />
+          <img
+            src={`${imagesBasePath}images/qr.png`}
+            className="w-48 mt-4"
+            alt="QR code"
+          />
           <div className="my-4 text-blue-500">
-            <a href="/ticket.pdf" target="_blank">
+            <a href={`${imagesBasePath}ticket.pdf`} target="_blank">
               or download and print your ticket
             </a>
           </div>
