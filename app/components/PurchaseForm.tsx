@@ -26,7 +26,7 @@ export default function PurchaseForm({ price }: { price: number | undefined }) {
         Pay with
         <img
           className="inline-block w-20 ms-2"
-          src={`${basePath}images/PayPal.png`}
+          src={`${basePath}/images/PayPal.png`}
           alt="PayPal "
         />
       </div>
@@ -38,7 +38,7 @@ export default function PurchaseForm({ price }: { price: number | undefined }) {
         Pay with
         <img
           className="inline-block w-14 ms-2 "
-          src={`${basePath}images/stripe.svg`}
+          src={`${basePath}/images/stripe.svg`}
           alt="Stripe"
         />
       </div>
