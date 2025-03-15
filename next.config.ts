@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  publicRuntimeConfig: {
+    basePath: isGithubPages ? `/etp-attendee-front` : "",
+  },
 };
 
 export default nextConfig;
