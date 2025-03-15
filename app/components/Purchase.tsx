@@ -9,7 +9,6 @@ import type { RootState } from "../../store/store";
 import { useDispatch } from "react-redux";
 import { setPayment } from "../../store/purchaseSlice";
 import type { AppDispatch } from "../../store/store";
-import { imagesBasePath } from "../imagesBase";
 
 function Purchase() {
   const dispatch: AppDispatch = useDispatch();
