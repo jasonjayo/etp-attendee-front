@@ -3,10 +3,8 @@
 import { Navbar } from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
-import { imagesBasePath } from "../imagesBase";
 
 export default function Header() {
-  console.log(imagesBasePath);
   return (
     <Navbar
       fluid={true}
@@ -16,7 +14,7 @@ export default function Header() {
       {/* Logo */}
       <Link href="/" className="flex items-center space-x-4">
         <Image
-          src={`${imagesBasePath}tickets.svg`}
+          src="/tickets.svg"
           width={50}
           height={30}
           className="h-8"
