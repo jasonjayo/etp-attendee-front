@@ -27,6 +27,8 @@ function Purchase() {
 
   const seats = 16;
 
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
+
   return (
     <div className="flex flex-1 justify-center gap-12">
       {purchaseFlowState === "seating" && (
@@ -73,12 +75,12 @@ function Purchase() {
           </p>
           <p className="my-4">Your digital QR ticket is below.</p>
           <img
-            src={`${imagesBasePath}images/qr.png`}
+            src={`${basePath}/images/qr.png`}
             className="w-48 mt-4"
             alt="QR code"
           />
           <div className="my-4 text-blue-500">
-            <a href={`${imagesBasePath}ticket.pdf`} target="_blank">
+            <a href={`${basePath}/ticket.pdf`} target="_blank">
               or download and print your ticket
             </a>
           </div>
