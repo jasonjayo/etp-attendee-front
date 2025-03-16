@@ -2,7 +2,7 @@
 import { useSearchParams } from "next/navigation";
 import { useEvent } from "../hooks/useEvent";
 import { Suspense } from "react";
-import PurchaseForm from "./PurchaseForm";
+import PurchaseForm from "./PaymentForm";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../store/store";
 
@@ -30,6 +30,7 @@ function Purchase() {
 
   return (
     <div className="flex flex-1 justify-center gap-12">
+      {/* seat selection */}
       {purchaseFlowState === "seating" && (
         <div className="flex flex-col justify-center bg-slate-100 rounded-xl p-20 ms-10">
           <h1 className="font-bold text-2xl my-8">Select your seat</h1>
@@ -45,7 +46,7 @@ function Purchase() {
                       : "bg-green-500 cursor-pointer"
                   }`}
                   key={i}
-                  title={isUnavailable ? "Seat unavailable" : "Seat unvailable"}
+                  title={isUnavailable ? "Seat unavailable" : "Seat available"}
                   onClick={() => !isUnavailable && dispatch(setPayment())}
                 >
                   {i + 1}
@@ -56,13 +57,31 @@ function Purchase() {
         </div>
       )}
 
+      {/* order summary (right side) */}
+      {(purchaseFlowState === "form" || purchaseFlowState === "seating") && (
+        <section className="flex flex-col justify-center bg-slate-100 rounded-xl p-20 ms-10">
+          You&#39;re purchasing a
+          <div className="font-bold text-2xl">{ticket?.name}</div>
+          for
+          <div className="font-bold text-2xl">{event.title}</div>
+          <div className="mt-6">
+            <b>€{ticket?.price}</b> incl. fees
+          </div>
+        </section>
+      )}
+
+      {/* payment */}
       {purchaseFlowState === "form" && <PurchaseForm price={ticket?.price} />}
+
+      {/* processing payment */}
       {purchaseFlowState === "processing" && (
         <div className="flex justify-center flex-col items-center">
           <div className="loader mb-8"></div>
           <div>Processing payment...</div>
         </div>
       )}
+
+      {/* completed */}
       {purchaseFlowState === "completed" && (
         <div className="flex justify-center flex-col items-center">
           <div className="material-symbols-outlined !text-6xl mb-5">
@@ -84,18 +103,6 @@ function Purchase() {
             </a>
           </div>
         </div>
-      )}
-
-      {(purchaseFlowState === "form" || purchaseFlowState === "seating") && (
-        <section className="flex flex-col justify-center bg-slate-100 rounded-xl p-20 ms-10">
-          You&#39;re purchasing a
-          <div className="font-bold text-2xl">{ticket?.name}</div>
-          for
-          <div className="font-bold text-2xl">{event.title}</div>
-          <div className="mt-6">
-            <b>€{ticket?.price}</b> incl. fees
-          </div>
-        </section>
       )}
     </div>
   );

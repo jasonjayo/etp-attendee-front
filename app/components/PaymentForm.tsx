@@ -45,7 +45,7 @@ export default function PurchaseForm({ price }: { price: number | undefined }) {
       <div className="my-4">
         <div className="text-center">or</div>
       </div>
-      <form className="flex flex-col gap-4 w-80 me-10">
+      <form className="flex flex-col gap-4 w-80 me-10" onSubmit={submitForm}>
         <div>
           <div className="mb-2 block">
             <Label htmlFor="firstName" value="First name" />
@@ -75,27 +75,41 @@ export default function PurchaseForm({ price }: { price: number | undefined }) {
           <div className="mb-2 block">
             <Label htmlFor="expiry" value="Expiry" />
           </div>
-          <TextInput id="expiry" type="text" placeholder="mm-yy" required />
+          <TextInput
+            id="expiry"
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]{2}-[0-9]{2}"
+            placeholder="mm-yy"
+            required
+          />
         </div>
         <div>
           <div className="mb-2 block">
             <Label htmlFor="csv" value="CSV" />
           </div>
-          <TextInput id="csv" type="text" placeholder="xxx" required />
+          <TextInput
+            id="csv"
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]{3}"
+            placeholder="xxx"
+            required
+          />
         </div>
         <div className="flex gap-2">
-          <Checkbox id="accept" />
-          <Label htmlFor="accept" className="flex">
+          <Checkbox id="saveCard" />
+          <Label htmlFor="saveCard" className="flex">
             Save my card details for next time
           </Label>
         </div>
         <div className="flex gap-2">
-          <Checkbox id="accept" />
-          <Label htmlFor="accept" className="flex">
+          <Checkbox id="acceptUpdated" />
+          <Label htmlFor="acceptUpdated" className="flex">
             Keep with updated about this event
           </Label>
         </div>
-        <Button type="submit" gradientMonochrome="teal" onClick={submitForm}>
+        <Button type="submit" gradientMonochrome="teal">
           Pay €{price}
         </Button>
       </form>
